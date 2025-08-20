@@ -1,6 +1,6 @@
 <div class="bg-indigo-900">
   <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-    @for(movie of movies.slice(0,9);track movie.id){
+    @for(movie of movies().slice(0,9);track movie.id){
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <img class="rounded-t-lg" [src]="imgSrc + movie.poster_path" alt="" />
       <div class="p-5">
@@ -45,7 +45,7 @@
 
     <!-- Lazy Loading -->
     @defer (on interaction) {
-    @for(movie of movies.slice(9);track movie.id){
+    @for(movie of movies().slice(9);track movie.id){
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <img class="rounded-t-lg" [src]="imgSrc + movie.poster_path" alt="" />
       <div class="p-5">

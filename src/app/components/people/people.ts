@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MoviesAPI } from '../../services/movies-api';
 import { IPerson } from '../../interfaces/iperson';
@@ -14,15 +14,14 @@ export class People {
 
   private readonly _MoviesAPI = inject(MoviesAPI);
   personSubId!: Subscription
-  people!: IPerson[]
+  people:WritableSignal<IPerson[]> = signal([]);
   imgSrc: string = 'https://image.tmdb.org/t/p/w500'
 
 
   ngOnInit(): void {
-    this.personSubId = this._MoviesAPI.getPerson().subscribe({
+    this.personSubId = this._MoviesAPI.getApis('person').subscribe({
       next: (res) => {
-        console.log(res.results);
-        this.people = res.results
+        this.people.set(res.results)
       },
       error: (err) => {
         console.log(err);

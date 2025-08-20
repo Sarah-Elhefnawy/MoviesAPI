@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, WritableSignal, signal } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IMovies } from '../../interfaces/imovies';
 import { MoviesAPI } from '../../services/movies-api';
@@ -14,15 +14,14 @@ export class Movies {
 
   private readonly _MoviesAPI = inject(MoviesAPI);
   moviesSubId!: Subscription
-  movies!: IMovies[]
+  movies:WritableSignal<IMovies[]> =  signal([])
   imgSrc: string = 'https://image.tmdb.org/t/p/w500'
 
 
   ngOnInit(): void {
-    this.moviesSubId = this._MoviesAPI.getMovies().subscribe({
+    this.moviesSubId = this._MoviesAPI.getApis('movie').subscribe({
       next: (res) => {
-        console.log(res.results);
-        this.movies = res.results
+        this.movies.set(res.results)
         // if (res.poster_path == null) {
         //   res.poster_path = "./../public/sos.png"
         // }

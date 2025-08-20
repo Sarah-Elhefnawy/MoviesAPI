@@ -17,19 +17,7 @@ export class MoviesAPI {
 
   constructor(private _HttpClient: HttpClient) { }
 
-  getAllMovies(): Observable<any> {
-    return this._HttpClient.get('https://api.themoviedb.org/3/trending/all/day?language=en-US', this.options)
-  }
-
-  getMovies(): Observable<any> {
-    return this._HttpClient.get('https://api.themoviedb.org/3/trending/movie/day?language=en-US', this.options)
-  }
-
-  getPerson(): Observable<any> {
-    return this._HttpClient.get('https://api.themoviedb.org/3/trending/person/day?language=en-US', this.options)
-  }
-
-  getTV(): Observable<any> {
-    return this._HttpClient.get('https://api.themoviedb.org/3/trending/tv/day?language=en-US', this.options)
+  getApis(data:string): Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/trending/${data}/day?language=en-US`, this.options)
   }
 }
