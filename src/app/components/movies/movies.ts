@@ -22,9 +22,6 @@ export class Movies {
     this.moviesSubId = this._MoviesAPI.getApis('movie').subscribe({
       next: (res) => {
         this.movies.set(res.results)
-        // if (res.poster_path == null) {
-        //   res.poster_path = "./../public/sos.png"
-        // }
       },
       error: (err) => {
         console.log(err);

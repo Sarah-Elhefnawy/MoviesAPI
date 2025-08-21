@@ -21,11 +21,10 @@ export class People {
   ngOnInit(): void {
     this.personSubId = this._MoviesAPI.getApis('person').subscribe({
       next: (res) => {
-        this.people.set(res.results)
+        this.people.set(res.results);
       },
       error: (err) => {
         console.log(err);
-
       }
 
     })

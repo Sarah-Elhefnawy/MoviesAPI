@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-    // {path:'',redirectTo:'all',pathMatch:'full'},
+    {path:'',redirectTo:'all',pathMatch:'full'},
     {path:'all',loadComponent:()=>import('./components/all/all').then(c=>c.All),title:'All Trendings'},
     {path:'movies',loadComponent:()=>import('./components/movies/movies').then(c=>c.Movies),title:'Movies Trending'},
     {path:'people',loadComponent:()=>import('./components/people/people').then(c=>c.People),title:'People Trending'},
