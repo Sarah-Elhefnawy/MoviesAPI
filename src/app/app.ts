@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from "./components/navbar/navbar";
 import { Footer } from "./components/footer/footer";
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,10 @@ import { Footer } from "./components/footer/footer";
 })
 export class App {
   protected readonly title = signal('MoviesAPI');
+
+  // title = 'web-app';
+
+  ngOnInit(): void {
+    initFlowbite();
+  }
 }

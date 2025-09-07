@@ -1,4 +1,4 @@
-<div class="page-bg">
+<section>
   <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
     @for(movie of movies().slice(0,9);track movie.id){
     <div class="max-w-sm rounded-lg shadow-sm bg-gray-900">
@@ -84,7 +84,6 @@
         <p class="text-sm font-medium secondary-text-color">{{movie.vote_count}} global ratings</p>
       </div>
     </div>
-
     }
     }
     @placeholder {
@@ -93,4 +92,4 @@
       More</button>
     }
   </div>
-</div>
+</section>
