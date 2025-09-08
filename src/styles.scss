@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
-@import "flowbite/src/themes/default";
+@import "./../node_modules/flowbite/src/themes/default";
+@plugin "./../node_modules/flowbite/plugin";
+@source "./../node_modules/flowbite";
 
 $colors : (primary-text-color: rgb(138, 138, 138),
     secondary-text-color: rgb(113, 112, 112),
