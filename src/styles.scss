@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
-@import "./../node_modules/flowbite/src/themes/default";
+@use "tailwindcss";
+@use "./../node_modules/flowbite/src/themes/default";
 @plugin "./../node_modules/flowbite/plugin";
 @source "./../node_modules/flowbite";
 
@@ -12,12 +12,4 @@ $colors : (primary-text-color: rgb(138, 138, 138),
     .#{$key} {
         color: $value;
     }
-}
-
-// $bgs : (page-bg: #29235f);
-
-// @each $key, $value in $bgs {
-//     .#{$key} {
-//         background-color: $value;
-//     }
-// }
+};
