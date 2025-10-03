@@ -2,21 +2,10 @@
   command = "npm run build"
   publish = "dist/MoviesAPI/browser"
 
-[build.environment]
-  NODE_VERSION = "18"
-
-# Disable the Angular Runtime
 [functions]
-  directory = ".netlify/functions/"
+  directory = "dist/MoviesAPI/server"
 
-# Force your redirects
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
-
-# Explicitly handle the root path
-[[redirects]]
-  from = "/"
-  to = "/index.html"
+  to = "/.netlify/functions/server"
   status = 200
